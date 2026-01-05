@@ -1,0 +1,35 @@
+# Simple Market Equilibrium Calculator
+
+print("--- Welcome to the Demand & Supply Calculator ---")
+
+# 1. Get user input for Demand (Equation: Q = a - bP)
+# we use float() so the user can enter decimals
+a = float(input("Enter Demand Intercept (a): ")) 
+b = float(input("Enter Demand Slope (b): "))
+
+# 2. Get user input for Supply (Equation: Q = c + dP)
+c = float(input("Enter Supply Intercept (c): "))
+d = float(input("Enter Supply Slope (d): "))
+
+print("\nCalculating...")
+
+# 3. Math Logic:
+# At equilibrium, Demand = Supply
+# a - bP = c + dP
+# a - c = P(b + d)
+# P = (a - c) / (b + d)
+
+if (b + d) == 0:
+    print("Error: Slopes cannot add up to zero.")
+else:
+    # Calculate Equilibrium Price (P)
+    price = (a - c) / (b + d)
+    
+    # Calculate Equilibrium Quantity (Q) using the demand equation
+    quantity = a - (b * price)
+
+    # 4. Display the results
+    print("-" * 30)
+    print(f"Equilibrium Price: ${round(price, 2)}")
+    print(f"Equilibrium Quantity: {round(quantity, 2)}")
+    print("-" * 30)
